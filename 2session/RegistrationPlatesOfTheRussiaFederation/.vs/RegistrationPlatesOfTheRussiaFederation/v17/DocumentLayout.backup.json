@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\2session\\RegistrationPlatesOfTheRussiaFederation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B91036F-0F09-4EB0-934C-18EF9CE8820D}|UnitTestProject1\\UnitTestProject1.csproj|c:\\users\\admin\\source\\repos\\kuzminworkonup\\2session\\registrationplatesoftherussiafederation\\unittestproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B91036F-0F09-4EB0-934C-18EF9CE8820D}|UnitTestProject1\\UnitTestProject1.csproj|solutionrelative:unittestproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6D90B41-A0C8-48EC-B124-4E7D19ECFEB5}|RegistrationPlatesOfTheRussiaFederation\\RegistrationPlatesOfTheRussiaFederation.csproj|C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\2session\\RegistrationPlatesOfTheRussiaFederation\\registrationplatesoftherussiafederation\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6D90B41-A0C8-48EC-B124-4E7D19ECFEB5}|RegistrationPlatesOfTheRussiaFederation\\RegistrationPlatesOfTheRussiaFederation.csproj|solutionrelative:registrationplatesoftherussiafederation\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\2session\\RegistrationPlatesOfTheRussiaFederation\\UnitTestProject1\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "UnitTestProject1\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\2session\\RegistrationPlatesOfTheRussiaFederation\\UnitTestProject1\\UnitTest1.cs",
+              "RelativeToolTip": "UnitTestProject1\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T08:59:59.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\2session\\RegistrationPlatesOfTheRussiaFederation\\RegistrationPlatesOfTheRussiaFederation\\Class1.cs",
+              "RelativeDocumentMoniker": "RegistrationPlatesOfTheRussiaFederation\\Class1.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\2session\\RegistrationPlatesOfTheRussiaFederation\\RegistrationPlatesOfTheRussiaFederation\\Class1.cs",
+              "RelativeToolTip": "RegistrationPlatesOfTheRussiaFederation\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T08:59:16.719Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
