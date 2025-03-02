@@ -1,4 +1,6 @@
 using Avalonia.Controls;
+using conferenceProgInfSecurity.Models;
+using conferenceProgInfSecurity.ViewModels;
 
 namespace conferenceProgInfSecurity.Views
 {
@@ -6,7 +8,9 @@ namespace conferenceProgInfSecurity.Views
     {
         public MainWindow()
         {
+            var _db = new InformationsecuritydbContext(); // Создаем экземпляр БД
             InitializeComponent();
+            DataContext = new MainWindowViewModel(_db);
         }
     }
 }

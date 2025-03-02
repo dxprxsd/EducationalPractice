@@ -22,5 +22,11 @@ build_property.EnableGeneratedComInterfaceComImportInterop =
 [C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/Login.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/MainScreen.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

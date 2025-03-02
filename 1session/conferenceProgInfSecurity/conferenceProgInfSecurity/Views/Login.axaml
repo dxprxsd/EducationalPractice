@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:vm="using:conferenceProgInfSecurity.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="conferenceProgInfSecurity.Views.Login"
+			 x:DataType="vm:LoginViewModel">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+			<RowDefinition Height="50" />
+			<RowDefinition Height="50" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="50" />
+		</Grid.RowDefinitions>
+		
+		<!-- Login Title -->
+		<TextBlock Grid.Row="0" Text="Логин" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="20"/>
+
+		<!-- ID Client Input -->
+		<TextBox Grid.Row="1" Text="{Binding IdClient}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Watermark="Введите ID клиента"/>
+
+		<!-- Password Input -->
+		<TextBox Grid.Row="2" Text="{Binding Password}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Watermark="Введите пароль"/>
+
+		<!-- Login Button -->
+		<Button Grid.Row="3" Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Command="{Binding LoginCommand}" />
+
+		<!-- Error Message -->
+		<TextBlock Grid.Row="4" Text="{Binding ErrorMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Foreground="Red"/>
+	</Grid>
+</UserControl>
