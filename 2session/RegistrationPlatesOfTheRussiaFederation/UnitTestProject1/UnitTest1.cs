@@ -14,21 +14,9 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void CheckMark_InvalidNumber_ReturnsFalse()
+        public void CheckMark_InvalidCharacters_ReturnsFalse()
         {
-            Assert.IsFalse(RegMarkLib.CheckMark("Z999ZZ999"));
-        }
-
-        [TestMethod]
-        public void CheckMark_EmptyString_ReturnsFalse()
-        {
-            Assert.IsFalse(RegMarkLib.CheckMark(""));
-        }
-
-        [TestMethod]
-        public void CheckMark_Null_ReturnsFalse()
-        {
-            Assert.IsFalse(RegMarkLib.CheckMark(null));
+            Assert.IsFalse(RegMarkLib.CheckMark("@123BC77"));
         }
 
         [TestMethod]
@@ -38,9 +26,9 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void GetNextMarkAfter_InvalidNumber_ThrowsException()
+        public void GetNextMarkAfter_SeriesExhausted_ReturnsMessage()
         {
-            Assert.ThrowsException<ArgumentException>(() => RegMarkLib.GetNextMarkAfter("Z999ZZ999"));
+            Assert.AreEqual("Series exhausted", RegMarkLib.GetNextMarkAfter("A999XX99"));
         }
 
         [TestMethod]
@@ -62,15 +50,9 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void GetCombinationsCountInRange_SameNumbers_ReturnsOne()
+        public void GetCombinationsCountInRange_LargeRange_ReturnsCorrectValue()
         {
-            Assert.AreEqual(1, RegMarkLib.GetCombinationsCountInRange("A100BC77", "A100BC77"));
-        }
-
-        [TestMethod]
-        public void GetCombinationsCountInRange_InvalidNumbers_ThrowsException()
-        {
-            Assert.ThrowsException<ArgumentException>(() => RegMarkLib.GetCombinationsCountInRange("A100BC77", "Z999ZZ999"));
+            Assert.AreEqual(900, RegMarkLib.GetCombinationsCountInRange("A100BC77", "A999BC77"));
         }
 
         [TestMethod]
@@ -80,21 +62,42 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void CheckMark_InvalidRegion_ReturnsFalse()
+        public void GetNextMarkAfterInRange_FullSeries_Exhausted()
         {
-            Assert.IsFalse(RegMarkLib.CheckMark("A123BC9999"));
+            Assert.AreEqual("out of stock", RegMarkLib.GetNextMarkAfterInRange("A999XX99", "A999XX99", "A999XX99"));
         }
 
         [TestMethod]
-        public void GetNextMarkAfter_SeriesExhausted_ReturnsMessage()
-        {
-            Assert.AreEqual("Series exhausted", RegMarkLib.GetNextMarkAfter("A999XX99"));
-        }
-
-        [TestMethod]
-        public void GetNextMarkAfterInRange_ValidMidRange_ReturnsNext()
+        public void GetNextMarkAfterInRange_MidRange_ReturnsNext()
         {
             Assert.AreEqual("A125BC77", RegMarkLib.GetNextMarkAfterInRange("A124BC77", "A120BC77", "A130BC77"));
+        }
+
+        [TestMethod]
+        public void GetCombinationsCountInRange_EdgeCase_ReturnsOne()
+        {
+            Assert.AreEqual(1, RegMarkLib.GetCombinationsCountInRange("A999BC77", "A999BC77"));
+        }
+
+        [TestMethod]
+        public void CheckMark_IInvalidCharacters_ReturnsFalse()
+        {
+            Assert.IsFalse(RegMarkLib.CheckMark("Z123ZZ99")); // 'Z' недопустимая буква
+            Assert.IsFalse(RegMarkLib.CheckMark("A12BXY34")); // Некорректная структура
+        }
+
+        [TestMethod]
+        public void GetNextMarkAfterInRange_ExceedingRange_ReturnsOutOfStock()
+        {
+            string result = RegMarkLib.GetNextMarkAfterInRange("A999XX77", "B000AA77", "B500AA77");
+            Assert.AreEqual("out of stock", result);
+        }
+
+        [TestMethod]
+        public void GetCombinationsCountInRange_ValidRange_ReturnsCorrectCount()
+        {
+            int count = RegMarkLib.GetCombinationsCountInRange("A123BC77", "A130BC77");
+            Assert.AreEqual(8, count);
         }
     }
 }

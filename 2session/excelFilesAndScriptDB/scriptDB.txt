@@ -1,0 +1,139 @@
+create table Directions(
+	idDirections serial primary key not null,
+	directionName text not null
+)
+
+create table Sobitie(
+	idSobitie serial primary key not null,
+	sobitieName text not null
+)
+
+create table Countries(
+	idCountry serial primary key not null,
+	countryName text not null,
+	countryNameEng text not null,
+	firstCode char(5) not null,
+	secondCode int not null
+)
+
+create table Cities(
+	idCity serial primary key not null,
+	cityName text not null,
+	cityimage text not null
+)
+
+create table Genders(
+	idGender serial primary key not null,
+	genderName text not null
+)
+
+create table Activities(
+	activitiesId serial primary key not null,
+	activitiesName text not null
+)
+
+create table Client(
+	idClient serial primary key not null,
+	snameClient varchar(100) not null,
+	nameClient varchar(100) not null,
+	patronymicClient varchar(100) not null,
+	email text not null,
+	dob timestamp not null,
+	countryId int not null,
+	phoneNumber varchar(20) not null,
+	password text not null,
+	photo text not null,  
+	genderId int not null,
+	foreign key (genderId) references Genders(idGender),
+	foreign key (countryId) references Countries(idCountry)
+)
+
+create table Organizers(
+	idOrganizer serial primary key not null,
+	snameOrganizer varchar(100) not null,
+	nameOrganizer varchar(100) not null,
+	patronymicOrganizer varchar(100) not null,
+	email text not null,
+	dob timestamp not null,
+	countryId int not null,
+	phoneNumber varchar(20) not null,
+	password text,
+	photo text not null,
+	genderId int,
+	foreign key (genderId) references Genders(idGender),
+	foreign key (countryId) references Countries(idCountry)
+)
+
+create table Jury(
+	juryId serial primary key not null,
+	snameJury varchar(100) not null,
+	nameJury varchar(100) not null,
+	patronymicJury varchar(100) not null,
+	genderId int not null,
+	email text not null,
+	dob timestamp not null,
+	countryId int not null,
+	phoneNumber varchar(20) not null,
+	directionsId int not null,
+	password text not null,
+	photo text not null,
+	foreign key (genderId) references Genders(idGender),
+	foreign key (directionsId) references Directions(idDirections),
+	foreign key (countryId) references Countries(idCountry)
+)
+
+create table Moderators(
+	moderatorId serial primary key not null,
+	snameModerator varchar(100) not null,
+	nameModerator varchar(100) not null,
+	patronymicModerator varchar(100) not null,
+	genderId int not null,
+	email text not null,
+	dob timestamp not null,
+	countryId int not null,
+	phoneNumber varchar(20) not null,
+	directionsId int not null,
+	sobitieId int not null,
+	password text not null,
+	photo text not null,
+	foreign key (genderId) references Genders(idGender),
+	foreign key (directionsId) references Directions(idDirections),
+	foreign key (sobitieId) references Sobitie(idSobitie),
+	foreign key (countryId) references Countries(idCountry)
+)
+
+create table Meropriyatie(
+	meropriyatieId serial primary key not null,
+	meropriyatieName text not null,
+	meropriyatieDate timestamp not null,
+	cityId int not null,
+	foreign key (cityId) references Cities(idCity)
+)
+
+create table MeropriyatieAndActivities(
+	meropriyatieAndActivitiesId serial primary key not null,
+	idMeropriyatie int not null,
+	startDate timestamp not null,
+	daysCount int not null,
+	idActivities int not null,
+	numberDay int not null,
+	timeStart time not null,
+	idModerator int not null,
+	firstJury int,
+	secondJury int,
+	thirdJury int,
+	fourthJury int,
+	fifthJury int,
+	winnerId int not null,
+	foreign key (idMeropriyatie) references Meropriyatie(meropriyatieId),
+	foreign key (idActivities) references Activities(activitiesId),
+	foreign key (idModerator) references Moderators(moderatorId),
+	foreign key (firstJury) references Jury(juryId),
+	foreign key (secondJury) references Jury(juryId),
+	foreign key (thirdJury) references Jury(juryId),
+	foreign key (fourthJury) references Jury(juryId),
+	foreign key (fifthJury) references Jury(juryId),
+	foreign key (winnerId) references Client(idClient)
+)
+
+drop table MeropriyatieAndActivities
