@@ -1,4 +1,3 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using conferenceProgInfSecurity.Models;
@@ -8,12 +7,11 @@ namespace conferenceProgInfSecurity.Views
 {
     public partial class Login : UserControl
     {
+        //InformationsecuritydbContext db, MainWindowViewModel mainWindowViewModel
         public Login()
         {
-            var _db = new InformationsecuritydbContext(); // Создаем экземпляр БД
             InitializeComponent();
-            DataContext = new LoginViewModel(_db);
+            //DataContext = new LoginViewModel(db, mainWindowViewModel); // Передаем оба параметра
         }
     }
 }
-

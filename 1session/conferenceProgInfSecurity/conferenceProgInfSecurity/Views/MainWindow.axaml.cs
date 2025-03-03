@@ -10,6 +10,7 @@ namespace conferenceProgInfSecurity.Views
         {
             var _db = new InformationsecuritydbContext(); // Создаем экземпляр БД
             InitializeComponent();
+            var mainWindowViewModel = new MainWindowViewModel(_db);
             DataContext = new MainWindowViewModel(_db);
         }
     }

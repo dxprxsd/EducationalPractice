@@ -17,11 +17,19 @@ namespace conferenceProgInfSecurity.ViewModels
         private ObservableCollection<Sobitie> _events;
         private string _filter;
         private UserControl _us;
+        public static MainWindowViewModel Self;
+        List<Meropriyatie> meropriyaties;
 
         public ObservableCollection<Sobitie> Events
         {
             get => _events;
             set => this.RaiseAndSetIfChanged(ref _events, value);
+        }
+
+        public List<Meropriyatie> Meropriyaties
+        {
+            get => meropriyaties;
+            set => this.RaiseAndSetIfChanged(ref meropriyaties, value);
         }
 
         public UserControl Us
@@ -43,8 +51,14 @@ namespace conferenceProgInfSecurity.ViewModels
         public MainWindowViewModel(InformationsecuritydbContext db)
         {
             _db = db;
-            Us = new MainScreen(); // Инициализация MainScreen
+            Self = this;
+            Us = new MainScreen(); // ЭКРАН НАЧАЛА ПРОГРАММЫ
+            //Us = new Login(_db, this); // ЭКРАН НАЧАЛА ПРОГРАММЫ
             LoadEvents();
+            // Создание LoginViewModel с передачей Self
+            //Us.DataContext = loginViewModel; // Устанавливаем DataContext для экрана входа
+            //var loginViewModel = new LoginViewModel(_db, this);
+            this.meropriyaties = db.Meropriyaties.ToList();
         }
 
         private void LoadEvents()
@@ -58,6 +72,22 @@ namespace conferenceProgInfSecurity.ViewModels
             Events = new ObservableCollection<Sobitie>(_db.Sobities.Where(e => e.Sobitiename.Contains(Filter, StringComparison.OrdinalIgnoreCase)).ToList());
         }
 
-        public void GoToLoginScreen() => Us = new Login();
+        public void GoToLoginScreen()
+        {
+            var loginViewModel = new LoginViewModel(_db, this);
+            Us = new Login { DataContext = loginViewModel };
+        }
+
+        public void GoToOrganizerScreen(Organizer organizer)
+        {
+            Us = new OrganizerScreen { DataContext = new OrganizerScreenViewModel(_db, organizer) };
+        }
+
+        // Метод для перехода на MainScreen
+        public void GoToMainsScreen()
+        {
+            // Переход на MainScreen
+            Us = new MainScreen(); // Пример, замените на вашу логику
+        }
     }
 }
