@@ -22,6 +22,12 @@ build_property.EnableGeneratedComInterfaceComImportInterop =
 [C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/ClientScreen.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/JuryScreen.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/Login.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
@@ -31,5 +37,11 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/ModeratorScreen.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/OrganizerScreen.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/admin/source/repos/KuzminWorkOnUP/1session/conferenceProgInfSecurity/conferenceProgInfSecurity/Views/RegistrationJuriModersScreen.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

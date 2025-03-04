@@ -194,15 +194,21 @@ public partial class InformationsecuritydbContext : DbContext
 
             entity.Property(e => e.Meropriyatieid).HasColumnName("meropriyatieid");
             entity.Property(e => e.Cityid).HasColumnName("cityid");
+            entity.Property(e => e.Directionsid).HasColumnName("directionsid");
             entity.Property(e => e.Meropriyatiedate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("meropriyatiedate");
             entity.Property(e => e.Meropriyatiename).HasColumnName("meropriyatiename");
+            entity.Property(e => e.Photo).HasColumnName("photo");
 
             entity.HasOne(d => d.City).WithMany(p => p.Meropriyaties)
                 .HasForeignKey(d => d.Cityid)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("meropriyatie_cityid_fkey");
+
+            entity.HasOne(d => d.Directions).WithMany(p => p.Meropriyaties)
+                .HasForeignKey(d => d.Directionsid)
+                .HasConstraintName("meropriyatie_directions_fk");
         });
 
         modelBuilder.Entity<Meropriyatieandactivity>(entity =>

@@ -60,7 +60,7 @@ namespace conferenceProgInfSecurity.ViewModels
                     if (client != null)
                     {
                         ErrorMessage = "Успешный вход как клиент!";
-                        GoToMainScreen(); // Переход на MainScreen
+                        GoToClientScreen(client); // Переход на MainScreen
                     }
                     else if (organizer != null)
                     {
@@ -70,12 +70,12 @@ namespace conferenceProgInfSecurity.ViewModels
                     else if (moderator != null)
                     {
                         ErrorMessage = "Успешный вход как модератор!";
-                        GoToMainScreen(); // Переход на MainScreen
+                        GoToModeratorScreen(moderator); // Переход на MainScreen
                     }
                     else if (jury != null)
                     {
                         ErrorMessage = "Успешный вход как жюри!";
-                        GoToMainScreen(); // Переход на MainScreen
+                        GoToJuryScreen(jury); // Переход на MainScreen
                     }
                     else
                     {
@@ -100,6 +100,30 @@ namespace conferenceProgInfSecurity.ViewModels
             var organizerScreenViewModel = new OrganizerScreenViewModel(_db, organizer);
             // Переходим на экран организатора
             _mainWindowViewModel.Us = new OrganizerScreen { DataContext = organizerScreenViewModel };
+        }
+
+        private void GoToClientScreen(Client client)
+        {
+            // Создаем новый ViewModel для экрана организатора
+            var clientScreenViewModel = new ClientScreenViewModel(_db, client);
+            // Переходим на экран организатора
+            _mainWindowViewModel.Us = new ClientScreen { DataContext = clientScreenViewModel };
+        }
+
+        private void GoToJuryScreen(Jury jury)
+        {
+            // Создаем новый ViewModel для экрана организатора
+            var juryScreenViewModel = new JuryScreenViewModel(_db, jury);
+            // Переходим на экран организатора
+            _mainWindowViewModel.Us = new JuryScreen { DataContext = juryScreenViewModel };
+        }
+
+        private void GoToModeratorScreen(Moderator moderator)
+        {
+            // Создаем новый ViewModel для экрана организатора
+            var moderatorScreenViewModel = new ModeratorScreenViewModel(_db, moderator);
+            // Переходим на экран организатора
+            _mainWindowViewModel.Us = new ModeratorScreen { DataContext = moderatorScreenViewModel };
         }
     }
 }
