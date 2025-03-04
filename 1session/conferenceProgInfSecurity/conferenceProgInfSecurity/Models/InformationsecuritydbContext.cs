@@ -172,12 +172,10 @@ public partial class InformationsecuritydbContext : DbContext
 
             entity.HasOne(d => d.Country).WithMany(p => p.Juries)
                 .HasForeignKey(d => d.Countryid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("jury_countryid_fkey");
 
             entity.HasOne(d => d.Directions).WithMany(p => p.Juries)
                 .HasForeignKey(d => d.Directionsid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("jury_directionsid_fkey");
 
             entity.HasOne(d => d.Gender).WithMany(p => p.Juries)
@@ -307,12 +305,10 @@ public partial class InformationsecuritydbContext : DbContext
 
             entity.HasOne(d => d.Country).WithMany(p => p.Moderators)
                 .HasForeignKey(d => d.Countryid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("moderators_countryid_fkey");
 
             entity.HasOne(d => d.Directions).WithMany(p => p.Moderators)
                 .HasForeignKey(d => d.Directionsid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("moderators_directionsid_fkey");
 
             entity.HasOne(d => d.Gender).WithMany(p => p.Moderators)
@@ -322,7 +318,6 @@ public partial class InformationsecuritydbContext : DbContext
 
             entity.HasOne(d => d.Sobitie).WithMany(p => p.Moderators)
                 .HasForeignKey(d => d.Sobitieid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("moderators_sobitieid_fkey");
         });
 

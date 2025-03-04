@@ -2,8 +2,10 @@ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using conferenceProgInfSecurity.Models;
+using conferenceProgInfSecurity.Views;
 using ReactiveUI;
 
 namespace conferenceProgInfSecurity.ViewModels
@@ -72,6 +74,8 @@ namespace conferenceProgInfSecurity.ViewModels
             // Устанавливаем две строки приветствия
             Greeting = $"{greetingWord}\n{genderPrefix} {organizerName}".Trim();
         }
+
+        public void GoToRegistrModerJuri() => MainWindowViewModel.Self.Us = new RegistrationJuriModersScreen();
 
         private void LoadEvents()
         {
