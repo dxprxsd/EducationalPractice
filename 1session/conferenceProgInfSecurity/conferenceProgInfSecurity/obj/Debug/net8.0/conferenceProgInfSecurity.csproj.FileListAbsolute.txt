@@ -237,3 +237,8 @@ C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\co
 C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\conferenceProgInfSecurity\bin\Debug\net8.0\MeropriyatiesPhoto\7.jpg
 C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\conferenceProgInfSecurity\bin\Debug\net8.0\MeropriyatiesPhoto\8.jpg
 C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\conferenceProgInfSecurity\bin\Debug\net8.0\MeropriyatiesPhoto\9.jpg
+C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\conferenceProgInfSecurity\bin\Debug\net8.0\OrganizersPhotos\foto10.jpg
+C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\conferenceProgInfSecurity\bin\Debug\net8.0\OrganizersPhotos\foto6.jpg
+C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\conferenceProgInfSecurity\bin\Debug\net8.0\OrganizersPhotos\foto7.jpg
+C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\conferenceProgInfSecurity\bin\Debug\net8.0\OrganizersPhotos\foto8.jpg
+C:\Users\admin\source\repos\KuzminWorkOnUP\1session\conferenceProgInfSecurity\conferenceProgInfSecurity\bin\Debug\net8.0\OrganizersPhotos\foto9.jpg

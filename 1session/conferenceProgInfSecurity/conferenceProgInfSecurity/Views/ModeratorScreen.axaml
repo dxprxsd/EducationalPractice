@@ -48,6 +48,7 @@
 			<StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
 				<!-- Приветствие (первая строка) -->
 				<TextBlock Text="{Binding Greeting, StringFormat={}{0}}" FontSize="20" TextAlignment="Center"/>
+				<Button Content="Назад" Width="60" Height="30" Command="{Binding ExitToMainScreen}" HorizontalAlignment="Center" />
 			</StackPanel>
 		</StackPanel>
 	</Grid>

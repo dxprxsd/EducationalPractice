@@ -3,34 +3,53 @@ using System.Collections.Generic;
 using conferenceProgInfSecurity.Models;
 using System.Collections.ObjectModel;
 using ReactiveUI;
+using conferenceProgInfSecurity.Views;
 
 namespace conferenceProgInfSecurity.ViewModels
 {
-	public class ClientScreenViewModel : ViewModelBase
-	{
+    /// <summary>
+    /// ViewModel для экрана клиента, управляющий данными клиента и отображением событий.
+    /// </summary>
+    public class ClientScreenViewModel : ViewModelBase
+    {
         private readonly InformationsecuritydbContext _db;
         private string _greeting;
         private ObservableCollection<Meropriyatie> _events;
         private Client _client; // Свойство для текущего организатора
 
+        /// <summary>
+        /// Приветствие для отображения на экране клиента.
+        /// </summary>
         public string Greeting
         {
             get => _greeting;
             set => this.RaiseAndSetIfChanged(ref _greeting, value);
         }
 
+        /// <summary>
+        /// Список мероприятий, связанных с текущим клиентом.
+        /// </summary>
         public ObservableCollection<Meropriyatie> Events
         {
             get => _events;
             set => this.RaiseAndSetIfChanged(ref _events, value);
         }
 
+        /// <summary>
+        /// Данные текущего клиента (организатора).
+        /// </summary>
         public Client Client
         {
             get => _client;
             set => this.RaiseAndSetIfChanged(ref _client, value);
         }
 
+        /// <summary>
+        /// Конструктор для создания экземпляра <see cref="ClientScreenViewModel"/>.
+        /// </summary>
+        /// <param name="db">Контекст базы данных для работы с данными.</param>
+        /// <param name="client">Информация о текущем клиенте (организаторе).</param>
+        /// <exception cref="ArgumentNullException">Если клиент равен null.</exception>
         public ClientScreenViewModel(InformationsecuritydbContext db, Client client)
         {
             if (client == null)
@@ -43,6 +62,10 @@ namespace conferenceProgInfSecurity.ViewModels
             //LoadEvents();
         }
 
+        /// <summary>
+        /// Загружает данные клиента, включая приветствие и другие параметры.
+        /// </summary>
+        /// <param name="client">Информация о текущем клиенте.</param>
         private void LoadClientData(Client client)
         {
             if (client == null)
@@ -71,9 +94,9 @@ namespace conferenceProgInfSecurity.ViewModels
             Greeting = $"{greetingWord}\n{genderPrefix} {organizerName}".Trim();
         }
 
-        //private void LoadEvents()
-        //{
-        //    Events = new ObservableCollection<Meropriyatie>(_db.Meropriyaties.ToList());
-        //}
+        /// <summary>
+        /// Переходит на главный экран.
+        /// </summary>
+        public void ExitToMainScreen() => MainWindowViewModel.Self.Us = new MainScreen();
     }
 }

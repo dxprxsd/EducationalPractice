@@ -14,6 +14,9 @@ using conferenceProgInfSecurity.Views;
 
 namespace conferenceProgInfSecurity.ViewModels
 {
+    /// <summary>
+    /// Модель представления для экрана регистрации жюри и модераторов.
+    /// </summary>
     public class RegistrationJuriModersScreenViewModel : ViewModelBase
     {
         private readonly InformationsecuritydbContext db = new InformationsecuritydbContext();
@@ -38,15 +41,19 @@ namespace conferenceProgInfSecurity.ViewModels
         private List<Meropriyatie> _meropriyaties;
         private Meropriyatie _selectedMeropriyatiesEntity;
 
+        /// <summary>
+        /// Конструктор модели представления, инициализирует данные для экрана регистрации.
+        /// </summary>
         public RegistrationJuriModersScreenViewModel()
         {
-            //GenderOptions = new List<string> { "Мужской", "Женский" };
             RoleOptions = new List<string> { "Жюри", "Модератор" };
             EventOptions = new List<string>(); // Должно загружаться из базы
             LoadGenders();
             LoadDirections();
             LoadMeropriyaties();
         }
+
+        // Свойства для привязки данных в представлении
 
         public string FirstName { get => _firstName; set => this.RaiseAndSetIfChanged(ref _firstName, value); }
         public string SecondName { get => _secondName; set => this.RaiseAndSetIfChanged(ref _secondName, value); }
@@ -71,6 +78,9 @@ namespace conferenceProgInfSecurity.ViewModels
         public List<string> RoleOptions { get; }
         public List<string> EventOptions { get; set; }
 
+        /// <summary>
+        /// Загружает данные о полах из базы данных.
+        /// </summary>
         private void LoadGenders()
         {
             try
@@ -83,6 +93,9 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
+        /// <summary>
+        /// Загружает данные о направлениях из базы данных.
+        /// </summary>
         private void LoadDirections()
         {
             try
@@ -95,6 +108,9 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
+        /// <summary>
+        /// Загружает данные о мероприятиях из базы данных.
+        /// </summary>
         private void LoadMeropriyaties()
         {
             try
@@ -107,6 +123,10 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
+        /// <summary>
+        /// Открывает диалоговое окно для загрузки фото пользователя.
+        /// </summary>
+        /// <returns>Асинхронная задача загрузки фото.</returns>
         public async Task UploadPhoto()
         {
             var window = Application.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
@@ -124,8 +144,14 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
+        /// <summary>
+        /// Отменяет регистрацию и возвращает пользователя на главный экран.
+        /// </summary>
         public void Cancel() => MainWindowViewModel.Self.Us = new MainScreen();
 
+        /// <summary>
+        /// Регистрация пользователя в системе.
+        /// </summary>
         public void Register()
         {
             if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(SecondName) ||
@@ -196,6 +222,11 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
+        /// <summary>
+        /// Валидирует пароль по нескольким критериям.
+        /// </summary>
+        /// <param name="password">Пароль для проверки.</param>
+        /// <returns>Результат валидации пароля.</returns>
         private bool ValidatePassword(string password)
         {
             return password.Length >= 6 &&

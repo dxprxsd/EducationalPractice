@@ -3,34 +3,53 @@ using System.Collections.Generic;
 using conferenceProgInfSecurity.Models;
 using System.Collections.ObjectModel;
 using ReactiveUI;
+using conferenceProgInfSecurity.Views;
 
 namespace conferenceProgInfSecurity.ViewModels
 {
-	public class JuryScreenViewModel : ViewModelBase
-	{
+    /// <summary>
+    /// Модель экрана жюри.
+    /// </summary>
+    public class JuryScreenViewModel : ViewModelBase
+    {
         private readonly InformationsecuritydbContext _db;
         private string _greeting;
         private ObservableCollection<Meropriyatie> _events;
         private Jury _jury; // Свойство для текущего организатора
 
+        /// <summary>
+        /// Приветственное сообщение для жюри.
+        /// </summary>
         public string Greeting
         {
             get => _greeting;
             set => this.RaiseAndSetIfChanged(ref _greeting, value);
         }
 
+        /// <summary>
+        /// Список мероприятий.
+        /// </summary>
         public ObservableCollection<Meropriyatie> Events
         {
             get => _events;
             set => this.RaiseAndSetIfChanged(ref _events, value);
         }
 
+        /// <summary>
+        /// Свойство для текущего жюри.
+        /// </summary>
         public Jury Jury
         {
             get => _jury;
             set => this.RaiseAndSetIfChanged(ref _jury, value);
         }
 
+        /// <summary>
+        /// Конструктор модели экрана жюри.
+        /// </summary>
+        /// <param name="db">Контекст базы данных.</param>
+        /// <param name="jury">Текущее жюри.</param>
+        /// <exception cref="ArgumentNullException">Если жюри равно null.</exception>
         public JuryScreenViewModel(InformationsecuritydbContext db, Jury jury)
         {
             if (jury == null)
@@ -43,6 +62,10 @@ namespace conferenceProgInfSecurity.ViewModels
             //LoadEvents();
         }
 
+        /// <summary>
+        /// Загружает данные для жюри и устанавливает приветственное сообщение.
+        /// </summary>
+        /// <param name="jury">Текущее жюри.</param>
         private void LoadJuryData(Jury jury)
         {
             if (jury == null)
@@ -70,5 +93,10 @@ namespace conferenceProgInfSecurity.ViewModels
             // Устанавливаем две строки приветствия
             Greeting = $"{greetingWord}\n{genderPrefix} {organizerName}".Trim();
         }
+
+        /// <summary>
+        /// Выход на главный экран.
+        /// </summary>
+        public void ExitToMainScreen() => MainWindowViewModel.Self.Us = new MainScreen();
     }
 }
