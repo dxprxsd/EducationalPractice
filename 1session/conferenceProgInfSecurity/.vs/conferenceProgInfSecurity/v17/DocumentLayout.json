@@ -1,36 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|c:\\users\\admin\\source\\repos\\kuzminworkonup\\1session\\conferenceproginfsecurity\\conferenceproginfsecurity\\views\\login.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|solutionrelative:conferenceproginfsecurity\\views\\login.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|c:\\users\\admin\\source\\repos\\kuzminworkonup\\1session\\conferenceproginfsecurity\\conferenceproginfsecurity\\views\\registrationjurimodersscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|solutionrelative:conferenceproginfsecurity\\views\\registrationjurimodersscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|c:\\users\\admin\\source\\repos\\kuzminworkonup\\1session\\conferenceproginfsecurity\\conferenceproginfsecurity\\viewmodels\\clientscreenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|solutionrelative:conferenceproginfsecurity\\viewmodels\\clientscreenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|c:\\users\\admin\\source\\repos\\kuzminworkonup\\1session\\conferenceproginfsecurity\\conferenceproginfsecurity\\views\\moderatorscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|solutionrelative:conferenceproginfsecurity\\views\\moderatorscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|c:\\users\\admin\\source\\repos\\kuzminworkonup\\1session\\conferenceproginfsecurity\\conferenceproginfsecurity\\views\\clientscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|solutionrelative:conferenceproginfsecurity\\views\\clientscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|c:\\users\\admin\\source\\repos\\kuzminworkonup\\1session\\conferenceproginfsecurity\\conferenceproginfsecurity\\views\\juryscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|solutionrelative:conferenceproginfsecurity\\views\\juryscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|c:\\users\\admin\\source\\repos\\kuzminworkonup\\1session\\conferenceproginfsecurity\\conferenceproginfsecurity\\views\\organizerscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{628E58A0-D7F5-4156-B60E-9F9682F4B85F}|conferenceProgInfSecurity\\conferenceProgInfSecurity.csproj|solutionrelative:conferenceproginfsecurity\\views\\organizerscreen.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -38,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,87 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegistrationJuriModersScreen.axaml",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\RegistrationJuriModersScreen.axaml",
-              "RelativeDocumentMoniker": "conferenceProgInfSecurity\\Views\\RegistrationJuriModersScreen.axaml",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\RegistrationJuriModersScreen.axaml",
-              "RelativeToolTip": "conferenceProgInfSecurity\\Views\\RegistrationJuriModersScreen.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T10:09:58.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.axaml",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\Login.axaml",
-              "RelativeDocumentMoniker": "conferenceProgInfSecurity\\Views\\Login.axaml",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\Login.axaml",
-              "RelativeToolTip": "conferenceProgInfSecurity\\Views\\Login.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T10:04:29.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrganizerScreen.axaml",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\OrganizerScreen.axaml",
-              "RelativeDocumentMoniker": "conferenceProgInfSecurity\\Views\\OrganizerScreen.axaml",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\OrganizerScreen.axaml",
-              "RelativeToolTip": "conferenceProgInfSecurity\\Views\\OrganizerScreen.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T08:38:36.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JuryScreen.axaml",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\JuryScreen.axaml",
-              "RelativeDocumentMoniker": "conferenceProgInfSecurity\\Views\\JuryScreen.axaml",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\JuryScreen.axaml",
-              "RelativeToolTip": "conferenceProgInfSecurity\\Views\\JuryScreen.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T08:37:49.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ClientScreen.axaml",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\ClientScreen.axaml",
-              "RelativeDocumentMoniker": "conferenceProgInfSecurity\\Views\\ClientScreen.axaml",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\ClientScreen.axaml",
-              "RelativeToolTip": "conferenceProgInfSecurity\\Views\\ClientScreen.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T08:33:27.277Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ModeratorScreen.axaml",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\ModeratorScreen.axaml",
-              "RelativeDocumentMoniker": "conferenceProgInfSecurity\\Views\\ModeratorScreen.axaml",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\Views\\ModeratorScreen.axaml",
-              "RelativeToolTip": "conferenceProgInfSecurity\\Views\\ModeratorScreen.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-04T17:08:37.213Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClientScreenViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\ViewModels\\ClientScreenViewModel.cs",
-              "RelativeDocumentMoniker": "conferenceProgInfSecurity\\ViewModels\\ClientScreenViewModel.cs",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\KuzminWorkOnUP\\1session\\conferenceProgInfSecurity\\conferenceProgInfSecurity\\ViewModels\\ClientScreenViewModel.cs",
-              "RelativeToolTip": "conferenceProgInfSecurity\\ViewModels\\ClientScreenViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T17:07:19.699Z",
-              "EditorCaption": ""
             }
           ]
         }

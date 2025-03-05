@@ -12,6 +12,8 @@
 			<RowDefinition Height="50" />
 			<RowDefinition Height="50" />
 			<RowDefinition Height="50" />
+			<RowDefinition Height="50" />
+			<RowDefinition Height="50" />
 			<RowDefinition Height="*" />
 			<RowDefinition Height="50" />
 		</Grid.RowDefinitions>
@@ -25,10 +27,14 @@
 		<!-- Password Input -->
 		<TextBox Grid.Row="2" Text="{Binding Password}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Watermark="Введите пароль"/>
 
+		<TextBox Grid.Row="3" Text="{Binding CapchaCheck}" Width="250" Height="40" Watermark="Введите капчу"/>
+
+		<UserControl Grid.Row="4" Content="{Binding CaptchaImage}"></UserControl>
+		
 		<!-- Login Button -->
-		<Button Grid.Row="3" Content="Войти" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Command="{Binding LoginCommand}" />
+		<Button Grid.Row="5" Content="Войти" IsEnabled="{Binding IsEnableButton}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Command="{Binding LoginCommand}" />
 
 		<!-- Error Message -->
-		<TextBlock Grid.Row="4" Text="{Binding ErrorMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="40" Margin="20" Foreground="Red"/>
+		<TextBlock Grid.Row="6" Text="{Binding ErrorMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="40" Margin="20" Foreground="Red"/>
 	</Grid>
 </UserControl>
