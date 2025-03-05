@@ -228,6 +228,9 @@ namespace conferenceProgInfSecurity.ViewModels
             _mainWindowViewModel.Us = new ModeratorScreen { DataContext = moderatorScreenViewModel };
         }
 
+        /// <summary>
+        /// Метод для генерации капчи.
+        /// </summary>
         public void GenerateCaptcha()
         {
             Random randomizer = new Random();
@@ -281,6 +284,11 @@ namespace conferenceProgInfSecurity.ViewModels
             }
             CaptchaImage = captchaCanvas;
         }
+
+        /// <summary>
+        /// Переходит на главный экран.
+        /// </summary>
+        public void ExitToMainScreen() => MainWindowViewModel.Self.Us = new MainScreen();
 
     }
 }

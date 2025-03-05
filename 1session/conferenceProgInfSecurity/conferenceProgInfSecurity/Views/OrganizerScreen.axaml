@@ -31,7 +31,7 @@
 		</Grid.ColumnDefinitions>
 
 		<!-- Заголовок -->
-		<TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Окно Организатора"
+		<TextBlock Grid.Row="0" Grid.ColumnSpan="2" Classes="Header" Text="Окно Организатора"
                    FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
 		<!-- Левая панель -->
@@ -42,7 +42,7 @@
 			</Border>
 			
 			<!-- Кнопка "Мой профиль" -->
-			<Button Content="Мой профиль" Width="150" Height="40" Command="{Binding }" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
+			<Button Content="Мой профиль" Classes="ButtonTemplate" Width="150" Height="40" Command="{Binding }" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
 		</StackPanel>
 
 		<!-- Правая панель -->
@@ -53,11 +53,11 @@
 			</StackPanel>
 
 			<!-- Кнопки -->
-			<Button Content="Мероприятия" Width="250" Height="40" Command="{Binding }" />
-			<Button Content="Участники" Width="250" Height="40" Command="{Binding }" />
-			<Button Content="Жюри" Width="250" Height="40" Command="{Binding }" />
-			<Button Content="Регистрация Жюри/Модераторов" Width="250" Height="40" Command="{Binding GoToRegistrModerJuri}" />
-			<Button Content="Назад" Width="60" Height="30" Command="{Binding ExitToMainScreen}" HorizontalAlignment="Center"	 />
+			<Button Content="Мероприятия" Classes="ButtonTemplate" Width="250" Height="40" Command="{Binding }" />
+			<Button Content="Участники" Classes="ButtonTemplate" Width="250" Height="40" Command="{Binding }" />
+			<Button Content="Жюри" Classes="ButtonTemplate" Width="250" Height="40" Command="{Binding }" />
+			<Button Content="Регистрация Жюри/Модераторов" Classes="ButtonTemplate" Width="250" Height="40" Command="{Binding GoToRegistrModerJuri}" />
+			<Button Content="Назад" Classes="ButtonInTemplate" Width="60" Height="40" Command="{Binding ExitToMainScreen}" HorizontalAlignment="Center"	 />
 		</StackPanel>
 	</Grid>
 </UserControl>

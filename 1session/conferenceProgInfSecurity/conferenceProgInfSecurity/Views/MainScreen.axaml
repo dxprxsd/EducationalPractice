@@ -17,12 +17,12 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="80" />
 			<RowDefinition Height="*" />
-			<RowDefinition Height="80" />
+			<RowDefinition Height="85" />
 		</Grid.RowDefinitions>
 
 		<!-- Заголовок -->
 		<StackPanel Grid.Row="0" Margin="10" >
-			<TextBlock Text="Добро пожаловать в главное меню!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" FontWeight="Bold"/>
+			<TextBlock Text="Добро пожаловать в главное меню!" Classes="Header" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
 			<StackPanel Orientation="Horizontal">
 				<!-- Фильтрация по направлению -->
 				<ComboBox ItemsSource="{Binding DirectionOptions}" DisplayMemberBinding="{Binding Directionname}" SelectedItem="{Binding DirectionOneOption}" Margin="10"/>
@@ -50,6 +50,6 @@
 		</ListBox>
 
 		<!-- Кнопка для перехода к экрану организаторов -->
-		<Button Grid.Row="2" Content="Авторизация" Command="{Binding GoToLoginScreen}" Margin="10" />
+		<Button Grid.Row="2" Content="Авторизация" Command="{Binding GoToLoginScreen}" Margin="10" Width="150" Classes="ButtonTemplate" />
 	</Grid>
 </UserControl>

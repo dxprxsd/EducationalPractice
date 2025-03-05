@@ -19,8 +19,8 @@
 		</Grid.RowDefinitions>
 		
 		<!-- Login Title -->
-		<TextBlock Grid.Row="0" Text="Логин" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="20"/>
-
+		<TextBlock Grid.Row="0" Text="Авторизация" Classes="Header" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="20"/>
+		<Button Grid.Row="0" Content="Назад" Classes="ButtonInTemplate" Width="60" Height="40" Command="{Binding ExitToMainScreen}" HorizontalAlignment="Left" Margin="10"	 />
 		<!-- ID Client Input -->
 		<TextBox Grid.Row="1" Text="{Binding IdClient}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Watermark="Введите ID клиента"/>
 
@@ -32,7 +32,7 @@
 		<UserControl Grid.Row="4" Content="{Binding CaptchaImage}"></UserControl>
 		
 		<!-- Login Button -->
-		<Button Grid.Row="5" Content="Войти" IsEnabled="{Binding IsEnableButton}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Command="{Binding LoginCommand}" />
+		<Button Grid.Row="5" Content="Войти" IsEnabled="{Binding IsEnableButton}" Classes="ButtonTemplate" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="40" Margin="20" Command="{Binding LoginCommand}" />
 
 		<!-- Error Message -->
 		<TextBlock Grid.Row="6" Text="{Binding ErrorMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="40" Margin="20" Foreground="Red"/>
