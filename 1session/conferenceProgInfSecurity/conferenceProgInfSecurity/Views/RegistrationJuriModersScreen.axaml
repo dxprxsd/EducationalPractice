@@ -108,7 +108,7 @@
 				<!-- <CheckBox Grid.Column="1" Content="Видимый пароль" IsChecked="{Binding ShowPassword}" Grid.Row="3" />-->
 
 				<!-- Кнопки OK и Отмена -->
-				<StackPanel Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10" Grid.Row="4">
+				<StackPanel Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10" Grid.Row="4" Margin="20">
 					<Button Content="OK" Command="{Binding Register}" />
 					<Button Content="Отмена" Command="{Binding Cancel}" />
 				</StackPanel>

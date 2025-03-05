@@ -35,12 +35,13 @@
                    FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
 		<!-- Левая панель -->
-		<StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Spacing="10">
+		<StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Spacing="10" VerticalAlignment="Center">
 			<!-- Фото -->
-			<Image Source="{Binding Client.Photo, Converter={StaticResource myImageConverter}}" Width="100" Height="100" />
-
+			<Border Width="150" Height="220" BorderBrush="Black" BorderThickness="1">
+				<Image Source="{Binding Client.Photo, Converter={StaticResource myImageConverter}}" Width="150" Height="220" />
+			</Border>
 			<!-- Кнопка "Мой профиль" -->
-			<Button Content="Мой профиль" Width="150" Height="40" Command="{Binding }" />
+			<Button Content="Мой профиль" Width="150" Height="40" Command="{Binding }" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 		</StackPanel>
 
 		<!-- Правая панель -->
@@ -52,5 +53,4 @@
 			</StackPanel>
 		</StackPanel>
 	</Grid>
-	
 </UserControl>
