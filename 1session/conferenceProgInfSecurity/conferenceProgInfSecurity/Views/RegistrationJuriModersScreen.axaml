@@ -18,7 +18,7 @@
 		</Grid.ColumnDefinitions>
 
 		<!-- Первый столбец -->
-		<StackPanel Grid.Column="0" Margin="3">
+		<StackPanel Grid.Column="0" Margin="5">
 			<TextBlock Text="Регистрация жюри/модератора" FontSize="20" FontWeight="Bold" />
 
 			<!-- Общий Grid для первого столбца -->
@@ -42,35 +42,35 @@
 				</Grid.ColumnDefinitions>
 
 				<!-- ФИО -->
-				<TextBox Grid.Column="1" Text="{Binding SecondName}" Grid.Row="1" />
-				<TextBlock Grid.Column="0" Text="Фамилия:" Margin="10" VerticalAlignment="Center" Grid.Row="1" />
-				<TextBox Grid.Column="1" Text="{Binding FirstName}" Grid.Row="2" />
+				<TextBox Grid.Column="1" Text="{Binding SecondName}" Grid.Row="1" Margin="3" />
+				<TextBlock Grid.Column="0" Text="Фамилия:" Margin="10" VerticalAlignment="Center" Grid.Row="1"  />
+				<TextBox Grid.Column="1" Text="{Binding FirstName}" Grid.Row="2" Margin="3" />
 				<TextBlock Grid.Column="0" Text="Имя:" Margin="10" VerticalAlignment="Center" Grid.Row="2" />
-				<TextBox Grid.Column="1" Text="{Binding Patronymic}" Grid.Row="3" />
+				<TextBox Grid.Column="1" Text="{Binding Patronymic}" Grid.Row="3" Margin="3" />
 				<TextBlock Grid.Column="0" Text="Отчество:" Margin="10" VerticalAlignment="Center" Grid.Row="3" />
 
 				<!-- Пол -->
-				<ComboBox Grid.Column="1" ItemsSource="{Binding Genders}" DisplayMemberBinding="{Binding Gendername}" SelectedItem="{Binding SelectedGenderEntity}" Grid.Row="4" />
-				<TextBlock Grid.Column="0" Text="Пол:" Margin="10" VerticalAlignment="Center" Grid.Row="4" />
+				<ComboBox Grid.Column="1" ItemsSource="{Binding Genders}" DisplayMemberBinding="{Binding Gendername}" SelectedItem="{Binding SelectedGenderEntity}" Grid.Row="4" Margin="3"  />
+				<TextBlock Grid.Column="0" Text="Пол:" Margin="10" VerticalAlignment="Center" Grid.Row="4"  />
 
 				<!-- Роль -->
-				<ComboBox Grid.Column="1" ItemsSource="{Binding RoleOptions}" SelectedItem="{Binding SelectedRole, Mode=TwoWay}" Grid.Row="5" />
+				<ComboBox Grid.Column="1" ItemsSource="{Binding RoleOptions}" SelectedItem="{Binding SelectedRole, Mode=TwoWay}" Grid.Row="5" Margin="3" />
 				<TextBlock Grid.Column="0" Text="Роль:" Margin="10" VerticalAlignment="Center" Grid.Row="5" />
 
 				<!-- Email -->
-				<TextBox Grid.Column="1" Text="{Binding Email, Mode=TwoWay}" Grid.Row="6" />
+				<TextBox Grid.Column="1" Text="{Binding Email, Mode=TwoWay}" Grid.Row="6" Margin="3" />
 				<TextBlock Grid.Column="0" Text="Email:" Margin="10" VerticalAlignment="Center" Grid.Row="6" />
 
 				<!-- Телефон -->
-				<TextBox Grid.Column="1" Text="{Binding Phone, Mode=TwoWay}" Grid.Row="7" />
+				<TextBox Grid.Column="1" Text="{Binding Phone, Mode=TwoWay}" Grid.Row="7" Margin="3" />
 				<TextBlock Grid.Column="0" Text="Телефон:" Margin="10" VerticalAlignment="Center" Grid.Row="7" />
 
 				<!-- Направление -->
-				<ComboBox Grid.Column="1" ItemsSource="{Binding Directions}" DisplayMemberBinding="{Binding Directionname}" SelectedItem="{Binding SelectedDirectionEntity}" Grid.Row="8" />
+				<ComboBox Grid.Column="1" ItemsSource="{Binding Directions}" DisplayMemberBinding="{Binding Directionname}" SelectedItem="{Binding SelectedDirectionEntity}" Grid.Row="8" Margin="3" />
 				<TextBlock Grid.Column="0" Text="Направление:" Margin="10" VerticalAlignment="Center" Grid.Row="8" />
 
 				<!-- Мероприятие -->
-				<ComboBox Grid.Column="1" ItemsSource="{Binding Meropriyaties}" DisplayMemberBinding="{Binding Meropriyatiename}" SelectedItem="{Binding SelectedMeropriyatiesEntity}" Grid.Row="10" />
+				<ComboBox Grid.Column="1" ItemsSource="{Binding Meropriyaties}" DisplayMemberBinding="{Binding Meropriyatiename}" SelectedItem="{Binding SelectedMeropriyatiesEntity}" Grid.Row="10" Margin="3" />
 				<TextBlock Grid.Column="0" Text="Мероприятие:" Margin="10" VerticalAlignment="Center" Grid.Row="10" />
 			</Grid>
 		</StackPanel>
@@ -92,23 +92,23 @@
 				</Grid.ColumnDefinitions>
 
 				<!-- Место под фото с бордером -->
-				<Border Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" Margin="10" Grid.Row="0">
-					<Image Source="{Binding PhotoPreview}" Width="200" Height="200" />
+				<Border Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" Margin="10" Grid.Row="0" >
+					<Image Source="{Binding PhotoPreview}" Width="200" Height="200" Margin="3" />
 				</Border>
 
 				<!-- Пароль -->
-				<TextBox Grid.Column="1" Text="{Binding Password, Mode=TwoWay}" Width="200" PasswordChar="*" Grid.Row="1" />
-				<TextBlock Grid.Column="0" Text="Пароль:" Margin="10" VerticalAlignment="Center" Grid.Row="1" />
+				<TextBox Grid.Column="1" Text="{Binding Password, Mode=TwoWay}" Width="200" PasswordChar="*" Grid.Row="1" Margin="3" />
+				<TextBlock Grid.Column="0" Text="Пароль:" Margin="10" VerticalAlignment="Center" Grid.Row="1"  />
 
 				<!-- Повтор пароля -->
-				<TextBox Grid.Column="1" Text="{Binding ConfirmPassword, Mode=TwoWay}" Width="200" PasswordChar="*" Grid.Row="2" />
-				<TextBlock Grid.Column="0" Text="Повтор пароля:" Margin="10" VerticalAlignment="Center" Grid.Row="2" />
+				<TextBox Grid.Column="1" Text="{Binding ConfirmPassword, Mode=TwoWay}" Width="200" PasswordChar="*" Grid.Row="2" Margin="3" />
+				<TextBlock Grid.Column="0" Text="Повтор пароля:" Margin="10" VerticalAlignment="Center" Grid.Row="2"  />
 
 				<!-- Видимый пароль -->
 				<!-- <CheckBox Grid.Column="1" Content="Видимый пароль" IsChecked="{Binding ShowPassword}" Grid.Row="3" />-->
 
 				<!-- Кнопки OK и Отмена -->
-				<StackPanel Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10" Grid.Row="4" Margin="20">
+				<StackPanel Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10" Grid.Row="4" Margin="20" >
 					<Button Content="OK" Command="{Binding Register}" />
 					<Button Content="Отмена" Command="{Binding Cancel}" />
 				</StackPanel>
