@@ -47,7 +47,7 @@ namespace conferenceProgInfSecurity.ViewModels
         Jury? typeJyru;
         bool isEnableMeropriyatie = true;
         char? pass;
-        bool show_pass;
+        bool showPass;
         private bool isEventEnabled;
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace conferenceProgInfSecurity.ViewModels
         public List<string> RoleOptions { get; }
         public List<string> EventOptions { get; set; }
         public char? Pass { get => pass; set => this.RaiseAndSetIfChanged(ref pass, value); }
-        public bool ShowPassword { get => show_pass; set { this.RaiseAndSetIfChanged(ref show_pass, value); VisiblePass(); } }
+        public bool ShowPassword { get => showPass; set { this.RaiseAndSetIfChanged(ref showPass, value); VisiblePass(); } }
         public bool IsEventEnabled { get => isEventEnabled; set { this.RaiseAndSetIfChanged(ref isEventEnabled, value); OnPropertyChanged();} }
 
         /// <summary>
@@ -113,7 +113,9 @@ namespace conferenceProgInfSecurity.ViewModels
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-
+        /// <summary>
+        /// Делает активным/неактивным выпадающий список мероприятий.
+        /// </summary>
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -267,6 +269,9 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
+        /// <summary>
+        /// Загружает фото.
+        /// </summary>
         public async Task ChangesImage()
         {
             Window newWindow = new Window();
@@ -290,6 +295,7 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
+        
         private string ProverkaPhoto(string filename, string shortfilename)
         {
             string directoriya = Environment.CurrentDirectory;
@@ -336,6 +342,9 @@ namespace conferenceProgInfSecurity.ViewModels
             return path;
         }
 
+        /// <summary>
+        /// Удаляет выбранное фото.
+        /// </summary>
         public void DeletePhoto()
         {
             if (SelectedRole == "Жюри" && typeJyru != null && !string.IsNullOrEmpty(typeJyru.Photo))
