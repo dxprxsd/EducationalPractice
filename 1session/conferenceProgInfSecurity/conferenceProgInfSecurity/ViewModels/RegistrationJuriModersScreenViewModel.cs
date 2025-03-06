@@ -11,6 +11,9 @@ using ReactiveUI;
 using conferenceProgInfSecurity.Models;
 using Avalonia.Controls.ApplicationLifetimes;
 using conferenceProgInfSecurity.Views;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace conferenceProgInfSecurity.ViewModels
 {
@@ -40,6 +43,12 @@ namespace conferenceProgInfSecurity.ViewModels
         private Direction _selectedDirectionEntity;
         private List<Meropriyatie> _meropriyaties;
         private Meropriyatie _selectedMeropriyatiesEntity;
+        Moderator? typeModerator;
+        Jury? typeJyru;
+        bool isEnableMeropriyatie = true;
+        char? pass;
+        bool show_pass;
+        private bool isEventEnabled;
 
         /// <summary>
         /// Конструктор модели представления, инициализирует данные для экрана регистрации.
@@ -51,10 +60,15 @@ namespace conferenceProgInfSecurity.ViewModels
             LoadGenders();
             LoadDirections();
             LoadMeropriyaties();
+            typeModerator = new Moderator();
+            typeJyru = new Jury();
+            pass = '*';
+            IsEventEnabled = false; // По умолчанию чекбокс выключен
         }
 
         // Свойства для привязки данных в представлении
 
+        public bool IsEnableMeropriyatie { get => isEnableMeropriyatie; set => this.RaiseAndSetIfChanged(ref isEnableMeropriyatie, value); }
         public string FirstName { get => _firstName; set => this.RaiseAndSetIfChanged(ref _firstName, value); }
         public string SecondName { get => _secondName; set => this.RaiseAndSetIfChanged(ref _secondName, value); }
         public string Patronymic { get => _patronymic; set => this.RaiseAndSetIfChanged(ref _patronymic, value); }
@@ -74,9 +88,14 @@ namespace conferenceProgInfSecurity.ViewModels
         public Bitmap PhotoPreview { get => _photoPreview; set => this.RaiseAndSetIfChanged(ref _photoPreview, value); }
         public List<Gender> Genders { get => _genders; set => this.RaiseAndSetIfChanged(ref _genders, value); }
         public Gender SelectedGenderEntity { get => _selectedGenderEntity; set => this.RaiseAndSetIfChanged(ref _selectedGenderEntity, value); }
+        public Moderator? TypeModerator { get => typeModerator; set => this.RaiseAndSetIfChanged(ref typeModerator, value); }
+        public Jury? TypeJyru { get => typeJyru; set => this.RaiseAndSetIfChanged(ref typeJyru, value); }
         public List<string> GenderOptions { get; }
         public List<string> RoleOptions { get; }
         public List<string> EventOptions { get; set; }
+        public char? Pass { get => pass; set => this.RaiseAndSetIfChanged(ref pass, value); }
+        public bool ShowPassword { get => show_pass; set { this.RaiseAndSetIfChanged(ref show_pass, value); VisiblePass(); } }
+        public bool IsEventEnabled { get => isEventEnabled; set { this.RaiseAndSetIfChanged(ref isEventEnabled, value); OnPropertyChanged();} }
 
         /// <summary>
         /// Загружает данные о полах из базы данных.
@@ -93,10 +112,29 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
-        /// <summary>
-        /// Загружает данные о направлениях из базы данных.
-        /// </summary>
-        private void LoadDirections()
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        void VisiblePass()
+        {
+            if (ShowPassword)
+            {
+                Pass = null;
+            }
+            else
+            {
+                Pass = '*';
+            }
+        }
+
+    /// <summary>
+    /// Загружает данные о направлениях из базы данных.
+    /// </summary>
+    private void LoadDirections()
         {
             try
             {
@@ -144,6 +182,9 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
+
+
+
         /// <summary>
         /// Отменяет регистрацию и возвращает пользователя на главный экран.
         /// </summary>
@@ -171,7 +212,7 @@ namespace conferenceProgInfSecurity.ViewModels
 
             if (!ValidatePassword(Password))
             {
-                Message = "Пароль должен содержать минимум 6 символов, заглавные и строчные буквы, одну цифру и спецсимвол.";
+                Message = "Пароль слишком простой";
                 return;
             }
 
@@ -187,6 +228,8 @@ namespace conferenceProgInfSecurity.ViewModels
                         Genderid = SelectedGenderEntity.Idgender,
                         Email = Email,
                         Phonenumber = Phone,
+                        Photo = typeJyru.Photo,
+                        Directionsid = SelectedDirectionEntity.Iddirections,
                         Dob = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified),  // Указание DateTimeKind.Unspecified
                         Password = Password
                     };
@@ -205,6 +248,8 @@ namespace conferenceProgInfSecurity.ViewModels
                         Genderid = SelectedGenderEntity.Idgender,
                         Email = Email,
                         Phonenumber = Phone,
+                        Photo = typeModerator.Photo,
+                        Directionsid = SelectedDirectionEntity.Iddirections,
                         Dob = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified),  // Указание DateTimeKind.Unspecified
                         Password = Password
                     };
@@ -220,6 +265,100 @@ namespace conferenceProgInfSecurity.ViewModels
             {
                 Message = $"Ошибка регистрации: {ex.Message}";
             }
+        }
+
+        public async Task ChangesImage()
+        {
+            Window newWindow = new Window();
+
+            var dialog = newWindow.StorageProvider;
+
+            var result = await dialog.OpenFilePickerAsync(new Avalonia.Platform.Storage.FilePickerOpenOptions() { FileTypeFilter = new[] { FilePickerFileTypes.ImageAll } });
+
+            if (result.Count != 0)
+            {
+                if (SelectedRole == "Жюри")
+                {
+                    typeJyru.Photo = ProverkaPhoto(result[0].Path.LocalPath, result[0].Name);
+                    PhotoPreview = new Bitmap(Environment.CurrentDirectory + "\\JuriPhotos" + "\\" + typeJyru.Photo);
+                }
+                else if (SelectedRole == "Модератор")
+                {
+                    typeModerator.Photo = ProverkaPhoto(result[0].Path.LocalPath, result[0].Name);
+                    PhotoPreview = new Bitmap(Environment.CurrentDirectory + "\\ModeratorsPhotos" + "\\" + typeModerator.Photo);
+                }
+            }
+        }
+
+        private string ProverkaPhoto(string filename, string shortfilename)
+        {
+            string directoriya = Environment.CurrentDirectory;
+
+            if (SelectedRole == "Жюри")
+            {
+                directoriya += "\\JuriPhotos";
+            }
+            else if (SelectedRole == "Модератор")
+            {
+                directoriya += "\\ModeratorsPhotos";
+            }
+            
+            string path = filename;
+            if (!path.Contains(directoriya))
+            {
+                string newPath = directoriya + "\\" + shortfilename;
+                while (true)
+                {
+                    if (File.Exists(newPath))
+                    {
+                        string[] pathDots = shortfilename.Split('.');
+                        pathDots[pathDots.Length - 2] = pathDots[pathDots.Length - 2] + "(1)";
+                        shortfilename = "";
+                        foreach (string pathDot in pathDots)
+                        {
+                            shortfilename += pathDot + ".";
+                        }
+                        shortfilename = shortfilename.Substring(0, shortfilename.Length - 1);
+                        newPath = directoriya + "\\" + shortfilename;
+
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                }
+                File.Copy(path, newPath, false);
+                path = newPath;
+            }
+            string[] massiv = path.Split("\\");
+            path = massiv[massiv.Length - 1];
+            return path;
+        }
+
+        public void DeletePhoto()
+        {
+            if (SelectedRole == "Жюри" && typeJyru != null && !string.IsNullOrEmpty(typeJyru.Photo))
+            {
+                string photoPath = Path.Combine(Environment.CurrentDirectory, "JuriPhotos", typeJyru.Photo);
+                if (File.Exists(photoPath))
+                {
+                    File.Delete(photoPath);
+                }
+                typeJyru.Photo = null;
+                PhotoPreview = null; 
+            }
+            else if (SelectedRole == "Модератор" && typeModerator != null && !string.IsNullOrEmpty(typeModerator.Photo))
+            {
+                string photoPath = Path.Combine(Environment.CurrentDirectory, "ModeratorsPhotos", typeModerator.Photo);
+                if (File.Exists(photoPath))
+                {
+                    File.Delete(photoPath);
+                }
+                typeModerator.Photo = null;
+                PhotoPreview = null; 
+            }
+            Message = "Фото удалено.";
         }
 
         /// <summary>

@@ -62,16 +62,22 @@
 				<TextBlock Grid.Column="0" Text="Email:" Classes="Default"  Margin="10" VerticalAlignment="Center" Grid.Row="6" />
 
 				<!-- Телефон -->
-				<TextBox Grid.Column="1" Text="{Binding Phone, Mode=TwoWay}" Grid.Row="7" Margin="3" />
-				<TextBlock Grid.Column="0" Text="Телефон:" Classes="Default"  Margin="10" VerticalAlignment="Center" Grid.Row="7" />
+				<TextBlock Grid.Column="0" Text="Телефон:" Classes="Default" Margin="10" VerticalAlignment="Center" Grid.Row="7"/>
+
+				<MaskedTextBox Grid.Column="1" Grid.Row="7" Margin="3" Mask="7(000)000-00-00" Text="{Binding Phone, Mode=TwoWay}" />
 
 				<!-- Направление -->
 				<ComboBox Grid.Column="1" ItemsSource="{Binding Directions}" DisplayMemberBinding="{Binding Directionname}" SelectedItem="{Binding SelectedDirectionEntity}" Grid.Row="8" Margin="3" />
 				<TextBlock Grid.Column="0" Text="Направление:" Classes="Default"  Margin="10" VerticalAlignment="Center" Grid.Row="8" />
 
-				<!-- Мероприятие -->
-				<ComboBox Grid.Column="1" ItemsSource="{Binding Meropriyaties}" DisplayMemberBinding="{Binding Meropriyatiename}" SelectedItem="{Binding SelectedMeropriyatiesEntity}" Grid.Row="10" Margin="3" />
-				<TextBlock Grid.Column="0" Text="Мероприятие:" Classes="Default"  Margin="10" VerticalAlignment="Center" Grid.Row="10" />
+				<CheckBox Grid.Column="1" Content="Видимое мероприятие" IsChecked="{Binding IsEventEnabled}" Grid.Row="9" />
+
+				<ComboBox Grid.Column="1" ItemsSource="{Binding Meropriyaties}" DisplayMemberBinding="{Binding Meropriyatiename}" SelectedItem="{Binding SelectedMeropriyatiesEntity}" IsEnabled="{Binding IsEventEnabled}"
+						  Grid.Row="10" Margin="3" />
+
+				<TextBlock Grid.Column="0" Text="Мероприятие:" Classes="Default" Margin="10" VerticalAlignment="Center" Grid.Row="10" />
+
+
 			</Grid>
 		</StackPanel>
 
@@ -85,6 +91,8 @@
 					<RowDefinition Height="Auto" />
 					<RowDefinition Height="Auto" />
 					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto" />
@@ -93,25 +101,31 @@
 
 				<!-- Место под фото с бордером -->
 				<Border Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" Margin="10" Grid.Row="0" >
-					<Image Source="{Binding PhotoPreview}" Width="200" Height="200" Margin="3" />
+					<Image Source="{Binding PhotoPreview}" Width="200" Height="200" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
 				</Border>
+				<StackPanel Grid.Row="1" Grid.ColumnSpan="2"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+					<Button  Content="Добавить фото" Classes="ButtonTemplate"  Command="{Binding ChangesImage}" Width="150" Margin="5" />
+					<Button Content="Удалить фото" Classes="ButtonInTemplate"  Command="{Binding DeletePhoto}" Width="150" Margin="5" />
+				</StackPanel>
 
 				<!-- Пароль -->
-				<TextBox Grid.Column="1" Text="{Binding Password, Mode=TwoWay}" Width="200" PasswordChar="*" Grid.Row="1" Margin="3" />
-				<TextBlock Grid.Column="0" Text="Пароль:" Classes="Default"  Margin="10" VerticalAlignment="Center" Grid.Row="1"  />
+				<TextBox Grid.Column="1" Text="{Binding Password, Mode=TwoWay}" Width="200" PasswordChar="{Binding Pass}" Grid.Row="2" Margin="3" />
+				<TextBlock Grid.Column="0" Text="Пароль:" Classes="Default"  Margin="10" VerticalAlignment="Center" Grid.Row="2"  />
 
 				<!-- Повтор пароля -->
-				<TextBox Grid.Column="1" Text="{Binding ConfirmPassword, Mode=TwoWay}" Width="200" PasswordChar="*" Grid.Row="2" Margin="3" />
-				<TextBlock Grid.Column="0" Text="Повтор пароля:" Classes="Default"  Margin="10" VerticalAlignment="Center" Grid.Row="2"  />
+				<TextBox Grid.Column="1" Text="{Binding ConfirmPassword, Mode=TwoWay}" Width="200" PasswordChar="{Binding Pass}" Grid.Row="3" Margin="3" />
+				<TextBlock Grid.Column="0" Text="Повтор пароля:" Classes="Default"  Margin="10" VerticalAlignment="Center" Grid.Row="3"  />
 
 				<!-- Видимый пароль -->
-				<!-- <CheckBox Grid.Column="1" Content="Видимый пароль" IsChecked="{Binding ShowPassword}" Grid.Row="3" />-->
+				<CheckBox Grid.ColumnSpan="2" Content="Видимый пароль" IsChecked="{Binding ShowPassword}" Grid.Row="4" />
 
 				<!-- Кнопки OK и Отмена -->
-				<StackPanel Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10" Grid.Row="4" Margin="20" >
+				<StackPanel Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10" Grid.Row="5" Margin="20" >
 					<Button Content="OK" Classes="ButtonTemplate"  Command="{Binding Register}" Width="40" />
 					<Button Content="Отмена" Classes="ButtonInTemplate"  Command="{Binding Cancel}" Width="80" />
 				</StackPanel>
+				<!-- Error Message -->
+				<TextBlock Grid.Row="6" Grid.ColumnSpan="2" Text="{Binding Message}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="40" Margin="20" Foreground="Red"/>
 			</Grid>
 		</StackPanel>
 	</Grid>

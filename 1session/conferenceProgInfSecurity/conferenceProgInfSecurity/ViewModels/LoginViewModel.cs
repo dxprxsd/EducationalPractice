@@ -268,7 +268,7 @@ namespace conferenceProgInfSecurity.ViewModels
                     CaptchaText += Convert.ToString(randomChar);
                 }
                 Canvas.SetLeft(textElement, initialX + (i * 35));
-                Canvas.SetTop(textElement, randomizer.Next(5, 40));
+                Canvas.SetTop(textElement, randomizer.Next(25, 40));
                 captchaCanvas.Children.Add(textElement);
             }
             for (int i = 0; i < randomizer.Next(10, 15); i++) // Уменьшено количество линий

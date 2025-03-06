@@ -88,10 +88,18 @@ namespace conferenceProgInfSecurity.ViewModels
             };
 
             // Получаем имя организатора (если не указано — подставляется заглушка)
-            string organizerName = !string.IsNullOrWhiteSpace(client.Nameclient) ? client.Nameclient : "Имя не указано";
+            string clientName = !string.IsNullOrWhiteSpace(client.Nameclient) ? client.Nameclient : "Имя не указано";
+
+            // Получаем отчество организатора (если не указано — подставляется пустая строка)
+            string clientPatronymic = !string.IsNullOrWhiteSpace(client.Patronymicclient) ? client.Patronymicclient : "";
+
+            // Формируем полное имя с отчеством (если отчество есть)
+            string fullName = string.IsNullOrWhiteSpace(clientPatronymic)
+                ? clientName
+                : $"{clientName} {clientPatronymic}";
 
             // Устанавливаем две строки приветствия
-            Greeting = $"{greetingWord}\n{genderPrefix} {organizerName}".Trim();
+            Greeting = $"{greetingWord}\n{genderPrefix} {fullName}".Trim();
         }
 
         /// <summary>
