@@ -14,6 +14,7 @@ using conferenceProgInfSecurity.Views;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace conferenceProgInfSecurity.ViewModels
 {
@@ -206,6 +207,12 @@ namespace conferenceProgInfSecurity.ViewModels
                 return;
             }
 
+            if (!IsValidEmail(Email))
+            {
+                Message = "У почты неверный шаблон";
+                return;
+            }
+
             if (Password != ConfirmPassword)
             {
                 Message = "Пароли не совпадают.";
@@ -232,13 +239,10 @@ namespace conferenceProgInfSecurity.ViewModels
                         Phonenumber = Phone,
                         Photo = typeJyru.Photo,
                         Directionsid = SelectedDirectionEntity.Iddirections,
-                        Dob = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified),  // Указание DateTimeKind.Unspecified
+                        Dob = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified),
                         Password = Password
                     };
                     db.Juries.Add(newJury);
-                    db.SaveChanges();
-                    Message = "Регистрация прошла успешно!";
-                    MainWindowViewModel.Self.Us = new MainScreen();
                 }
                 else if (SelectedRole == "Модератор")
                 {
@@ -252,16 +256,15 @@ namespace conferenceProgInfSecurity.ViewModels
                         Phonenumber = Phone,
                         Photo = typeModerator.Photo,
                         Directionsid = SelectedDirectionEntity.Iddirections,
-                        Dob = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified),  // Указание DateTimeKind.Unspecified
+                        Dob = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified),
                         Password = Password
                     };
                     db.Moderators.Add(newModerator);
-                    db.SaveChanges();
-                    Message = "Регистрация прошла успешно!";
-                    MainWindowViewModel.Self.Us = new MainScreen();
                 }
+
                 db.SaveChanges();
                 Message = "Регистрация прошла успешно!";
+                MainWindowViewModel.Self.Us = new MainScreen();
             }
             catch (Exception ex)
             {
@@ -295,7 +298,9 @@ namespace conferenceProgInfSecurity.ViewModels
             }
         }
 
-        
+        /// <summary>
+        /// Проверка фото в папке.
+        /// </summary>
         private string ProverkaPhoto(string filename, string shortfilename)
         {
             string directoriya = Environment.CurrentDirectory;
@@ -382,6 +387,14 @@ namespace conferenceProgInfSecurity.ViewModels
                    password.IndexOfAny("abcdefghijklmnopqrstuvwxyz".ToCharArray()) != -1 &&
                    password.IndexOfAny("0123456789".ToCharArray()) != -1 &&
                    password.IndexOfAny("!@#$%^&*()_-+=<>?/|".ToCharArray()) != -1;
+        }
+
+        /// <summary>
+        /// Валидирует почту с помощью регулярного выражения.
+        /// </summary>
+        private bool IsValidEmail(string email)
+        {
+            return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
         }
     }
 }

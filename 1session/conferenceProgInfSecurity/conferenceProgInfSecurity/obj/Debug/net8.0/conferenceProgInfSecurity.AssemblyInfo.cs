@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("conferenceProgInfSecurity")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+575c0f3fd24e309ea2df6cf63c02f8921c1fe58e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d614c6649f72442b4498371f8071cb63fe2b6c10")]
 [assembly: System.Reflection.AssemblyProductAttribute("conferenceProgInfSecurity")]
 [assembly: System.Reflection.AssemblyTitleAttribute("conferenceProgInfSecurity")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
